@@ -6,7 +6,7 @@
 #    By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 11:10:47 by hboumahd          #+#    #+#              #
-#    Updated: 2022/12/05 12:10:26 by hboumahd         ###   ########.fr        #
+#    Updated: 2022/12/06 12:18:56 by hboumahd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS =	main.cpp
 
 SRCOBJ = ${SRCS:.cpp=.o}
 
-Include = phonebook.hpp
+Include = PhoneBook.hpp MyHeader.hpp Contact.hpp
 
 # -g for the debugger
 %.o:%.cpp ${Include}
