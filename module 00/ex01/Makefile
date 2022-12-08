@@ -6,20 +6,20 @@
 #    By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 11:10:47 by hboumahd          #+#    #+#              #
-#    Updated: 2022/12/06 12:18:56 by hboumahd         ###   ########.fr        #
+#    Updated: 2022/12/08 11:52:52 by hboumahd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-CPP = c++
+CPP = clang++
 
-SRCS =	main.cpp 
+SRCS =	main.cpp Contact.cpp PhoneBook.cpp
 
 SRCOBJ = ${SRCS:.cpp=.o}
 
-Include = PhoneBook.hpp MyHeader.hpp Contact.hpp
+Include = PhoneBook.hpp MyHeader.hpp Contact.hpp 
 
 # -g for the debugger
 %.o:%.cpp ${Include}

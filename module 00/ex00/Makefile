@@ -6,14 +6,14 @@
 #    By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 11:10:47 by hboumahd          #+#    #+#              #
-#    Updated: 2022/12/05 11:30:49 by hboumahd         ###   ########.fr        #
+#    Updated: 2022/12/08 10:44:04 by hboumahd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = megaphone
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-CPP = c++
+CPP = clang++
 
 SRCS =	megaphone.cpp 
 
