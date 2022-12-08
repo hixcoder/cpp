@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:17:56 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/06 15:54:25 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/08 10:08:16 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ public:
     void AddContact(Contact contact, int i)
     {
         Contacts[i] = contact;
-        std::cout << "==> you have " << ++i << " contacts\n";
+        std::cout << "==> You create a new contact!\n";
     }
 
     void    SearchContact(int t_len)
