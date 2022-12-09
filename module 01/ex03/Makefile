@@ -6,20 +6,20 @@
 #    By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 11:10:47 by hboumahd          #+#    #+#              #
-#    Updated: 2022/12/08 14:43:04 by hboumahd         ###   ########.fr        #
+#    Updated: 2022/12/09 10:13:36 by hboumahd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = humans
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 CPP = clang++
 
-SRCS =	main.cpp Zombie.cpp zombieHorde.cpp 
+SRCS =	main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
 SRCOBJ = ${SRCS:.cpp=.o}
 
-Include = Zombie.hpp
+Include = MyHeader.hpp Weapon.hpp HumanA.hpp HumanB.hpp
 
 # -g for the debugger
 %.o:%.cpp ${Include}
