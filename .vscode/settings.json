@@ -61,6 +61,10 @@
         "vector": "cpp",
         "bit": "cpp",
         "__cxx_version": "cpp",
-        "memory_resource": "cpp"
+        "memory_resource": "cpp",
+        "deque": "cpp",
+        "fstream": "cpp",
+        "iomanip": "cpp",
+        "stack": "cpp"
     }
 }
