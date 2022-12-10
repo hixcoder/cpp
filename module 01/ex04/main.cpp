@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:42:41 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/10 11:35:17 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/10 12:20:03 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ void replaceInFile(std::string filename, std::string oldS, std::string newS)
     getline(infile, text, '\0');
     for (size_t i = 0; i < text.length(); i++)
     {
-        // tmp = text.substr(i, text.length() - i);
         tmp = text.substr(i);
-        std::cout << tmp << "\n";
         found = tmp.find(oldS);
         if (found != std::string::npos)
         {
@@ -36,9 +34,6 @@ void replaceInFile(std::string filename, std::string oldS, std::string newS)
         else
             break ;
         i += found + newS.length();
-        std::cout << "found        : " << found << "\n";
-        std::cout << "oldS.length(): " << newS.length() << "\n";
-        std::cout << "i            : " << i << "\n===========\n";
     }
     outfile.open(filename + ".replace");
     outfile << text;
