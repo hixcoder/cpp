@@ -6,38 +6,44 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:42:41 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/09 12:11:14 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/10 11:35:17 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "MyHeader.hpp"
 
-std::string getText(char *filename)
-{
-    std::string     data;
-    std::string     line;
-    std::ifstream   infile;
-    char tmp[100]; 
-    
-    infile.open(filename);
-    while (!infile.eof())
-    {
-        infile >> tmp;
-        getline(infile, line);
-        data += line + "\n";
-    }
-    infile.close();
-    return (data);
-}
-
-void replaceInFile(char *filename, char *s1, char *s2)
+void replaceInFile(std::string filename, std::string oldS, std::string newS)
 {
     std::string     text;
+    std::string     tmp;
+    size_t          found;
+    std::ifstream   infile;
+    std::ofstream   outfile;
     
-    text = getText(filename);
-    std::cout << s1 << "\n";
-    std::cout << s2 << "\n\n\n";
-    std::cout << text << "\n";
+    infile.open(filename);
+    getline(infile, text, '\0');
+    for (size_t i = 0; i < text.length(); i++)
+    {
+        // tmp = text.substr(i, text.length() - i);
+        tmp = text.substr(i);
+        std::cout << tmp << "\n";
+        found = tmp.find(oldS);
+        if (found != std::string::npos)
+        {
+            text.erase(i + found, oldS.length());
+            text.insert(i + found, newS);
+        }
+        else
+            break ;
+        i += found + newS.length();
+        std::cout << "found        : " << found << "\n";
+        std::cout << "oldS.length(): " << newS.length() << "\n";
+        std::cout << "i            : " << i << "\n===========\n";
+    }
+    outfile.open(filename + ".replace");
+    outfile << text;
+    outfile.close();
+    infile.close();
 }
 
 int main(int ac, char **av)
