@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.hpp": "cpp",
         "iostream": "cpp",
         "__bit_reference": "cpp",
         "__config": "cpp",
@@ -65,6 +66,8 @@
         "deque": "cpp",
         "fstream": "cpp",
         "iomanip": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "__functional_03": "cpp",
+        "filesystem": "cpp"
     }
 }
