@@ -6,22 +6,19 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 13:12:27 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/10 15:52:32 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/11 13:01:39 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 # include "MyHeader.hpp"
 
-int main()
+int main(int ac, char **av)
 {
     Harl h1;
-    std::string level;
     
-    level = "WARNING";
-    level = "INFO";
-    level = "DEBUG";
-    level = "ERROR";
-    h1.complain(level);
-    h1->fPtr2();
+    if (ac == 2)
+        h1.complain(av[1]);
+    else
+        std::cout << "[ Probably complaining about insignificant problems ]\n";
 }
