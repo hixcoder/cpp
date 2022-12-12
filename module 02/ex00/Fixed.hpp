@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:31:59 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/11 15:53:03 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/12 12:54:06 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,15 @@
 class Fixed
 {
     private:
-        int a;
+        int rawBits;
+        static const int fbNumber;
     public:
         Fixed();
-        Fixed & operator=(const Fixed &obj);
+        Fixed(Fixed &other);
+        Fixed& operator=(const Fixed &rhs);
         ~Fixed();
-        void setA(int a);
-        int getA();
+        
+        int getRawBits(void) const;
+        void setRawBits(int const raw);
+        
 };

@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:31:48 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/11 15:54:23 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/12 15:49:56 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,36 @@
 Fixed::Fixed()
 {
     std::cout << "Default constructor called\n";
+    rawBits = 0;
 }
 
-
-void Fixed::setA(int a)
+Fixed::Fixed(Fixed &other)
 {
-    this->a = a;
+    std::cout << "Copy constructor called\n";
+    rawBits = other.getRawBits();
 }
 
-Fixed & Fixed::operator=(const Fixed &obj)
+Fixed& Fixed::operator=(const Fixed &rhs)
 {
-    (void)obj;
-    std::cout << "Default assignment called\n";
+    std::cout << "Copy assignment operator called\n";
+    this->rawBits = rhs.getRawBits();
     return *this;
 }
-
-int Fixed::getA()
-{
-    return this->a;
-}
-
 
 Fixed::~Fixed()
 {
     std::cout << "Destructor called\n";
+}
+                                                                                                                                                        
+// other functions
+int Fixed::getRawBits(void) const
+{
+    std::cout << "getRawBits member function called\n";
+    return (rawBits);
+}
+
+void Fixed::setRawBits(int const raw)
+{
+    std::cout << "setRawBits member function called\n";
+    rawBits = raw;
 }

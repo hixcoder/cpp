@@ -6,32 +6,23 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 13:12:27 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/11 15:57:16 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/12 13:04:18 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 # include "MyHeader.hpp"
 
-typedef struct test
-{
-    int a;
-} t_test;
 
-
-
-int main()
-{
-
-
-    int a, c;
-
-    c = 4;
-
-    a = c;
-
+int main( void ) {
+    Fixed a;
+    Fixed b(a);
+    Fixed c;
     
-   
-   
-   return 0;
+    c = b;
+    std::cout << a.getRawBits() << std::endl;
+    std::cout << b.getRawBits() << std::endl;
+    std::cout << c.getRawBits() << std::endl;
+    return 0;
 }
+// 12.15
