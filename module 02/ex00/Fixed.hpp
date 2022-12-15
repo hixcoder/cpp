@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:31:59 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/12 12:54:06 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/13 14:44:50 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 class Fixed
 {
     private:
-        int rawBits;
-        static const int fbNumber;
+        int fixedPoint;
+        static const int frctionlBits = 8;
     public:
         Fixed();
         Fixed(Fixed &other);

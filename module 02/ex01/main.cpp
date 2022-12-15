@@ -6,12 +6,13 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 13:12:27 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/13 10:47:37 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/15 15:53:43 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 # include "MyHeader.hpp"
+#include <cmath>
 
 
 int main( void ) {
@@ -19,7 +20,7 @@ int main( void ) {
     Fixed const b(10);
     Fixed const c(42.42f);
     Fixed const d(b);
-    
+
     a = Fixed(1234.4321f);
     std::cout << "a is " << a << std::endl;
     std::cout << "b is " << b << std::endl;
@@ -31,3 +32,4 @@ int main( void ) {
     std::cout << "d is " << d.toInt() << " as integer" << std::endl;
     return 0;
 }
+

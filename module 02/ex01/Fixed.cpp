@@ -6,12 +6,13 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:31:48 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/13 11:26:01 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/15 15:53:11 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MyHeader.hpp"
 
+// pow(2, 8) = 256
 
 Fixed::Fixed()
 {
@@ -27,14 +28,17 @@ Fixed::Fixed(const Fixed &other)
 
 Fixed::Fixed(const int i)
 {
+    
     std::cout << "Int constructor called\n";
-    fixedPoint = i;
+    // fixedPoint = 256 * i;
+    fixedPoint = i * (1 << frctionlBits);
 }
 
 Fixed::Fixed(const float f)
 {
     std::cout << "Float constructor called\n";
-    fixedPoint = f;
+    // fixedPoint = 256 * f;
+    fixedPoint = f * (1 << frctionlBits);
 }
 
 Fixed& Fixed::operator=(const Fixed &rhs)
@@ -46,9 +50,7 @@ Fixed& Fixed::operator=(const Fixed &rhs)
 
 std::ostream& operator<<(std::ostream& output, const Fixed &rhs)
 {
-    output << rhs.fixedPoint;
-    if (rhs.frctionlBits != 0)
-        output << "." << rhs.frctionlBits;
+    output << rhs.toFloat();
     return output;
 }
 
@@ -59,28 +61,25 @@ Fixed::~Fixed()
 
 
 
-                                                                                                                                                        
-// other functions
 int Fixed::getRawBits(void) const
 {
-    // std::cout << "getRawBits member function called\n";
     return (fixedPoint);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-    // std::cout << "setRawBits member function called\n";
     fixedPoint = raw;
 }
 
 float Fixed::toFloat( void ) const
 {
-    // std::cout << "toFloat\n";
-    return (fixedPoint);
+    float myfloat = static_cast<float>(fixedPoint / (1 << frctionlBits));
+    // float myfloat = static_cast<float>(fixedPoint  >> frctionlBits);
+    return myfloat;
 }
 
-int Fixed::toInt( void ) const
+int Fixed::toInt(void) const
 {
-    // std::cout << "toInt\n";
-    return (fixedPoint);
+    int myInt = fixedPoint / (1 << frctionlBits);
+    return myInt;
 }
