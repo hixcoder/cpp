@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 13:12:27 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/15 15:53:43 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/16 15:16:17 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int main( void ) {
     std::cout << "b is " << b.toInt() << " as integer" << std::endl;
     std::cout << "c is " << c.toInt() << " as integer" << std::endl;
     std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+    
     return 0;
 }
 
