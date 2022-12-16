@@ -10,7 +10,3 @@ representation, such as in financial applications. Floating point numbers,
 on the other hand, are typically used when working with scientific or engineering data 
 where the exact decimal representation is not as important.
 
-
-can you make A function that takes a constant integer as a parameter.
-It converts it to the corresponding fixed-point value. The fractional bits value is
-initialized to 8 like in exercise 00
