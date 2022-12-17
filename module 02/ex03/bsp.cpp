@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 10:40:45 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/17 13:13:42 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/17 13:16:20 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
     float a2 = area(a, point, c);
     float a3 = area(a, b, point);
     float total = a1 + a2 + a3;
-    
-    std::cout << "\n areas A, a1, a2, a3: "<< A << ", " << a1  << ", " << a2  << ", " << a3 << "\n";
-    std::cout << "\ntotal: "<< total << "\n";
-    std::cout << "A: "<< A << "\n";
+
     if (total == A)
         return true;
     return false;
