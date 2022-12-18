@@ -6,20 +6,20 @@
 #    By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 11:10:47 by hboumahd          #+#    #+#              #
-#    Updated: 2022/12/18 13:03:43 by hboumahd         ###   ########.fr        #
+#    Updated: 2022/12/18 17:35:28 by hboumahd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fragTrap
+NAME = DiamondTrap
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 CPP = clang++
 
-SRCS =	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRCS =	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 SRCOBJ = ${SRCS:.cpp=.o}
 
-Include = MyHeader.hpp  ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
+Include = MyHeader.hpp  ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 
 # -g for the debugger
 %.o:%.cpp ${Include}

@@ -6,41 +6,72 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 13:19:57 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/18 15:18:57 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/18 18:24:53 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MyHeader.hpp"
 
-// DiamondTrap::DiamondTrap(std::string Name)
-// {
-//     this->name = Name;
-//     this->hitPoints = 100;
-//     this->energyPoints = 100;
-//     this->attackDamage = 30;
-//     std::cout << "Constructor of the DiamondTrap " << this->name << " is called\n";
-// }
+DiamondTrap::DiamondTrap()
+{
+    this->name = "DiamondTrap0";
+    this->clap_name = ClapTrap::name;
+    this->hitPoints = FragTrap::hitPoints;
+    this->energyPoints = ScavTrap::energyPoints;
+    this->attackDamage = FragTrap::attackDamage;
+    std::cout << "Constructor of the DiamondTrap is called\n";
+}
 
-// DiamondTrap::~DiamondTrap()
-// {
-//     std::cout << "Destructor of the DiamondTrap " << this->name << " is called\n";
-// }
+DiamondTrap::DiamondTrap(std::string Name)
+{
+    this->name = Name;
+    this->clap_name = Name + "_clap_name";
+    this->hitPoints = FragTrap::hitPoints;
+    this->energyPoints = ScavTrap::energyPoints;
+    this->attackDamage = FragTrap::attackDamage;
+    std::cout << "Constructor of the DiamondTrap is called\n";
+}
 
-// void DiamondTrap::attack(const std::string& target)
-// {
-//     if (this->hitPoints <= 0)
-//         std::cout << this->name << " died!  :[\n";
-//     else if (this->energyPoints <= 0)
-//         std::cout << this->name << " have 0 energyPoints!\n";
-//     else
-//     {
-//         std::cout << "DiamondTrap " << this->name << " attacks " << target 
-//                   << ", causing " << this->attackDamage << " points of damage!\n";
-//         this->energyPoints--;
-//     }
-// }
+DiamondTrap::DiamondTrap(DiamondTrap &other)
+{
+    this->name = other.name;
+    this->hitPoints = other.hitPoints;
+    this->energyPoints = other.energyPoints;
+    this->attackDamage = other.attackDamage;
+}
 
-// void DiamondTrap::highFivesGuys(void)
-// {
-//     std::cout << "Hey my name is " << this->name << ", can I get a high five? :)" << std::endl;
-// }
+DiamondTrap& DiamondTrap::operator=(DiamondTrap &other)
+{
+    this->name = other.name;
+    this->hitPoints = other.hitPoints;
+    this->energyPoints = other.energyPoints;
+    this->attackDamage = other.attackDamage;
+    return (*this);
+}
+
+DiamondTrap::~DiamondTrap()
+{
+    std::cout << "Destructor of the DiamondTrap is called\n";
+}
+
+void DiamondTrap::whoAmI()
+{
+    std::cout << "=====================================\n";
+    std::cout << "my name is: " << this->name << "\n";
+    std::cout << "my ClapTrap name is: " << this->clap_name << "\n";
+    std::cout << "=====================================\n";
+}
+
+/*******************************************************************************\
+*                               getters and setters                          
+\*******************************************************************************/
+
+
+std::string DiamondTrap::getClap_name()
+{
+    return this->clap_name;
+}
+void DiamondTrap::setClap_name(std::string clap_name)
+{
+    this->clap_name = clap_name;
+}

@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:56:45 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/18 16:08:58 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/18 18:37:24 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <string>
 # include "ClapTrap.hpp"
 
-class FragTrap: public ClapTrap
+class FragTrap: virtual public ClapTrap
 {
 public:
     FragTrap(std::string Name);

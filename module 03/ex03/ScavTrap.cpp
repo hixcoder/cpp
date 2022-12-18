@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:09:38 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/18 16:05:46 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/18 18:19:41 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ScavTrap::ScavTrap()
     this->hitPoints = 100;
     this->energyPoints = 50;
     this->attackDamage = 20;
-    std::cout << "Constructor of the ScavTrap " << this->name << " is called\n";
+    std::cout << "Constructor of the ScavTrap is called\n";
 }
 
 ScavTrap::ScavTrap(ScavTrap &other)
@@ -35,12 +35,12 @@ ScavTrap::ScavTrap(std::string Name)
     this->hitPoints = 100;
     this->energyPoints = 50;
     this->attackDamage = 20;
-    std::cout << "Constructor of the ScavTrap " << this->name << " is called\n";
+    std::cout << "Constructor of the ScavTrap is called\n";
 }
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "Destructor of the ScavTrap " << this->name << " is called\n";
+    std::cout << "Destructor of the ScavTrap is called\n";
 }
 
 ScavTrap& ScavTrap::operator=(ScavTrap &other)
@@ -60,7 +60,7 @@ void ScavTrap::attack(const std::string& target)
         std::cout << this->name << " have 0 energyPoints!\n";
     else
     {
-        std::cout << "ScavTrap " << this->name << " attacks " << target 
+        std::cout << "Scavion attack from " << this->name << " to " << target 
                   << ", causing " << this->attackDamage << " points of damage!\n";
         this->energyPoints--;
     }

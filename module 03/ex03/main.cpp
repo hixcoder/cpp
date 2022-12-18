@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 13:12:27 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/18 15:23:36 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/18 18:25:31 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void printStatus(DiamondTrap *s)
 {
     std::cout << "=======================\n";
     std::cout << "* name: " << s->getName() << "\n";
+    std::cout << "* Cnme: " << s->getClap_name() << "\n";
     std::cout << "* hp  : " << s->getHitPoints() << "\n";
     std::cout << "* mp  : " << s->getEnergyPoints() << "\n";
     std::cout << "* attk: " << s->getAttackDamage() << "\n";
@@ -24,13 +25,16 @@ void printStatus(DiamondTrap *s)
 }
 
 int main( void ) {
-    DiamondTrap s1;
+    DiamondTrap s1("Diamon_Monster");
+    // DiamondTrap s1;
 
-    // printStatus(&s1);
-    // s1.attack("sonic");
-    // s1.takeDamage(2);
-    // s1.beRepaired(1);
-    // s1.setAttackDamage(5);
-    // s1.highFivesGuys();
+    printStatus(&s1);
+    s1.attack("sonic");
+    s1.takeDamage(2);
+    s1.beRepaired(1);
+    s1.setAttackDamage(5);
+    s1.highFivesGuys();
+    s1.guardGate();
+    s1.whoAmI();
     return 0;
 }

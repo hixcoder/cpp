@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:56:07 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/18 16:09:25 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/18 18:14:30 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ FragTrap::FragTrap()
 {
     this->name = "FragTrap0";
     this->hitPoints = 100;
-    this->energyPoints = 50;
-    this->attackDamage = 20;
-    std::cout << "Constructor of the ScavTrap " << this->name << " is called\n";
+    this->energyPoints = 100;
+    this->attackDamage = 30;
+    std::cout << "Constructor of the FragTrap is called\n";
 }
 
 FragTrap::FragTrap(std::string Name)
@@ -27,7 +27,7 @@ FragTrap::FragTrap(std::string Name)
     this->hitPoints = 100;
     this->energyPoints = 100;
     this->attackDamage = 30;
-    std::cout << "Constructor of the FragTrap " << this->name << " is called\n";
+    std::cout << "Constructor of the FragTrap is called\n";
 }
 
 FragTrap::FragTrap(FragTrap &other)
@@ -40,7 +40,7 @@ FragTrap::FragTrap(FragTrap &other)
 
 FragTrap::~FragTrap()
 {
-    std::cout << "Destructor of the FragTrap " << this->name << " is called\n";
+    std::cout << "Destructor of the FragTrap is called\n";
 }
 
 FragTrap& FragTrap::operator=(FragTrap &other)
@@ -60,7 +60,7 @@ void FragTrap::attack(const std::string& target)
         std::cout << this->name << " have 0 energyPoints!\n";
     else
     {
-        std::cout << "FragTrap " << this->name << " attacks " << target 
+        std::cout << "Fragion attack from " << this->name << " to " << target 
                   << ", causing " << this->attackDamage << " points of damage!\n";
         this->energyPoints--;
     }

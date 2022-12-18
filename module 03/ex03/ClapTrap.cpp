@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 10:44:17 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/18 12:47:21 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/18 17:41:06 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ClapTrap::ClapTrap()
 {
-    this->name = "";
+    this->name = "ClapTrap0";
     this->hitPoints = 10;
     this->energyPoints = 10;
     this->attackDamage = 0;

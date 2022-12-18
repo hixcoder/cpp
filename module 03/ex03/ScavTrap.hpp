@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:09:35 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/18 16:05:30 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/18 16:50:08 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ClapTrap.hpp"
 
 
-class ScavTrap: public ClapTrap
+class ScavTrap: virtual public ClapTrap
 {
 public:
     ScavTrap();
