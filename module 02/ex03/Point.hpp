@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 10:40:58 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/17 12:57:18 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/17 16:27:25 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ public:
     Point& operator=(const Point &rhs);
     float getX() const;
     float getY() const;
+    bool operator==(const Point &rhs) const;
 };

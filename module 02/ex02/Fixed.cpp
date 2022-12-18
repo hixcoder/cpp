@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:31:48 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/16 21:15:24 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/17 15:04:43 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,20 +162,26 @@ const Fixed& Fixed::max(const Fixed &a, const Fixed &b)
     return a;
 }
 
-// const Fixed& Fixed::min(const Fixed &a, const Fixed &b)
-// {
-//     return (a.getRawBits() < b.getRawBits()) ? a : b;
-// }
+const Fixed& Fixed::min(const Fixed &a, const Fixed &b)
+{
+    if ((a.getRawBits() < b.getRawBits()))
+        return a;
+    return b;
+}
 
-// Fixed& Fixed::max(Fixed &a, Fixed &b)
-// {
-//     return (a.getRawBits() < b.getRawBits()) ? b : a;
-// }
+Fixed& Fixed::max(Fixed &a, Fixed &b)
+{
+    if ((a.getRawBits() < b.getRawBits()))
+        return b;
+    return a;
+}
 
-// Fixed& Fixed::min(Fixed &a, Fixed &b)
-// {
-//     return (a.getRawBits() < b.getRawBits()) ? b : a;
-// }
+Fixed& Fixed::min(Fixed &a, Fixed &b)
+{
+    if ((a.getRawBits() < b.getRawBits()))
+        return a;
+    return b;
+}
 
 // this function is out of the Fixed class
 std::ostream& operator<<(std::ostream& output, const Fixed &rhs)

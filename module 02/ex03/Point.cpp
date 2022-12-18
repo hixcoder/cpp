@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 10:40:54 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/17 12:57:09 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/17 16:28:43 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,13 @@ float Point::getX() const
 float Point::getY() const
 {
     return (this->y.toFloat());
+}
+
+bool Point::operator==(const Point &rhs) const
+{
+    if (this->x.toFloat() != rhs.getX())
+        return false;
+    if (this->y.toFloat() != rhs.getY())        
+        return false;
+    return true;
 }
