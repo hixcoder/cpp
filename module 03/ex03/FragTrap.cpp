@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:56:07 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/18 18:14:30 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/19 12:16:49 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ FragTrap::FragTrap(std::string Name)
 
 FragTrap::FragTrap(FragTrap &other)
 {
-    this->name = other.name;
-    this->hitPoints = other.hitPoints;
-    this->energyPoints = other.energyPoints;
-    this->attackDamage = other.attackDamage;
+    *this = other;
 }
 
 FragTrap::~FragTrap()

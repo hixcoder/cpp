@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:09:38 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/18 18:19:41 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/19 11:18:50 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,7 @@ ScavTrap::ScavTrap()
 
 ScavTrap::ScavTrap(ScavTrap &other)
 {
-    this->name = other.name;
-    this->hitPoints = other.hitPoints;
-    this->energyPoints = other.energyPoints;
-    this->attackDamage = other.attackDamage;
+    *this = other;
 }
 
 ScavTrap::ScavTrap(std::string Name)

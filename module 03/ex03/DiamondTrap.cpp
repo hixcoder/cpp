@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 13:19:57 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/18 18:24:53 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/19 12:28:30 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,32 @@
 DiamondTrap::DiamondTrap()
 {
     this->name = "DiamondTrap0";
-    this->clap_name = ClapTrap::name;
-    this->hitPoints = FragTrap::hitPoints;
-    this->energyPoints = ScavTrap::energyPoints;
-    this->attackDamage = FragTrap::attackDamage;
+    ClapTrap::name = name + "_clap_name";
+    this->hitPoints = 100;
+    this->energyPoints = 50;
+    this->attackDamage = 30;
     std::cout << "Constructor of the DiamondTrap is called\n";
 }
 
 DiamondTrap::DiamondTrap(std::string Name)
 {
     this->name = Name;
-    this->clap_name = Name + "_clap_name";
-    this->hitPoints = FragTrap::hitPoints;
-    this->energyPoints = ScavTrap::energyPoints;
-    this->attackDamage = FragTrap::attackDamage;
+    ClapTrap::name = name + "_clap_name";
+    this->hitPoints = 100;
+    this->energyPoints = 50;
+    this->attackDamage = 30;
     std::cout << "Constructor of the DiamondTrap is called\n";
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap &other)
 {
-    this->name = other.name;
-    this->hitPoints = other.hitPoints;
-    this->energyPoints = other.energyPoints;
-    this->attackDamage = other.attackDamage;
+    (*this) = other;
 }
 
 DiamondTrap& DiamondTrap::operator=(DiamondTrap &other)
 {
     this->name = other.name;
+    ClapTrap::name = name + "_clap_name";
     this->hitPoints = other.hitPoints;
     this->energyPoints = other.energyPoints;
     this->attackDamage = other.attackDamage;
@@ -58,7 +56,7 @@ void DiamondTrap::whoAmI()
 {
     std::cout << "=====================================\n";
     std::cout << "my name is: " << this->name << "\n";
-    std::cout << "my ClapTrap name is: " << this->clap_name << "\n";
+    std::cout << "my ClapTrap name is: " << ClapTrap::name  << "\n";
     std::cout << "=====================================\n";
 }
 
@@ -67,11 +65,11 @@ void DiamondTrap::whoAmI()
 \*******************************************************************************/
 
 
-std::string DiamondTrap::getClap_name()
+std::string DiamondTrap::getName2()
 {
-    return this->clap_name;
+    return this->name;
 }
-void DiamondTrap::setClap_name(std::string clap_name)
+void DiamondTrap::setName2(std::string name)
 {
-    this->clap_name = clap_name;
+    this->name = name;
 }
