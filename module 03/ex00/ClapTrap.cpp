@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 10:44:17 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/18 16:52:29 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/19 12:53:35 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void ClapTrap::attack(const std::string& target)
     if (this->hitPoints <= 0)
         std::cout << "ClapTrap " << this->name << " died!  :[\n";
     else if (this->energyPoints <= 0)
-        std::cout << "you have 0 energyPoints!\n";
+        std::cout << "ClapTrap " << this->name << " have 0 energyPoints!\n";
     else
     {
         std::cout << "ClapTrap " << this->name << " attacks " << target 
@@ -76,7 +76,7 @@ void ClapTrap::beRepaired(unsigned int amount)
     if (this->hitPoints <= 0)
         std::cout << "ClapTrap " << this->name << " died!  :[\n";
     else if (this->energyPoints <= 0)
-        std::cout << "you have 0 energyPoints!\n";
+        std::cout << "ClapTrap " << this->name << " have 0 energyPoints!\n";
     else
     {
         std::cout << "ClapTrap " << this->name 

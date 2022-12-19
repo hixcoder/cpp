@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:56:07 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/19 11:17:53 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/19 16:04:54 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ FragTrap::FragTrap()
     this->hitPoints = 100;
     this->energyPoints = 100;
     this->attackDamage = 30;
-    std::cout << "Constructor of the ScavTrap " << this->name << " is called\n";
+    std::cout << "Constructor of the FragTrap " << this->name << " is called\n";
 }
 
 FragTrap::FragTrap(std::string Name)
@@ -32,10 +32,7 @@ FragTrap::FragTrap(std::string Name)
 
 FragTrap::FragTrap(FragTrap &other)
 {
-    this->name = other.name;
-    this->hitPoints = other.hitPoints;
-    this->energyPoints = other.energyPoints;
-    this->attackDamage = other.attackDamage;
+    *this = other;
 }
 
 FragTrap::~FragTrap()
