@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 10:44:17 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/18 16:52:29 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/20 12:32:02 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap()
     std::cout << "Constructor of the ClapTrap is called\n";
 }
 
-ClapTrap::ClapTrap(std::string Name)
+ClapTrap::ClapTrap(std::string Name) 
 {
     this->name = Name;
     this->hitPoints = 10;

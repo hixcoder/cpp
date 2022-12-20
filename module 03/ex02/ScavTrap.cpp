@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:09:38 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/19 11:18:22 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/20 12:34:18 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap()
     std::cout << "Constructor of the ScavTrap " << this->name << " is called\n";
 }
 
-ScavTrap::ScavTrap(ScavTrap &other)
+ScavTrap::ScavTrap(const ScavTrap &other)
 {
     *this = other;
 }
@@ -40,7 +40,7 @@ ScavTrap::~ScavTrap()
     std::cout << "Destructor of the ScavTrap " << this->name << " is called\n";
 }
 
-ScavTrap& ScavTrap::operator=(ScavTrap &other)
+ScavTrap& ScavTrap::operator=(const ScavTrap &other)
 {
     this->name = other.name;
     this->hitPoints = other.hitPoints;

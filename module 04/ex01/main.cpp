@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/18 12:09:35 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/20 12:27:18 by hboumahd         ###   ########.fr       */
+/*   Created: 2022/12/20 09:58:39 by hboumahd          #+#    #+#             */
+/*   Updated: 2022/12/20 14:59:05 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once 
-#include <iostream>
-#include <string>
-#include "ClapTrap.hpp"
+#include "MyHeader.hpp"
 
-
-class ScavTrap: public ClapTrap
+int main()
 {
-public:
-    ScavTrap();
-    ScavTrap(std::string Name);
-    ScavTrap(const ScavTrap &other);
-    ~ScavTrap();
-    
-    ScavTrap& operator=(const ScavTrap &other);
-    void attack(const std::string& target);
-    void guardGate();
-};
+    size_t len = 4;
+    Animal *a = new Animal[len];
+    for (size_t i = 0; i < len; i++)
+    {
+        if (i < (len / 2))
+            a[i] = Dog();
+        else
+            a[i] = Cat();
+    }
+    delete[] a;
+    return 0;
+}

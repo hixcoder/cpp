@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 10:44:14 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/18 16:52:29 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/20 12:30:13 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ public:
 
     std::string getName();
     void setName(std::string name);
-    int getHitPoints();
+    int getHitPoints() ;
     void setHitPoints(int hitPoints);
     int getEnergyPoints();
     void setEnergyPoints(int energyPoints);

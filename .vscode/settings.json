@@ -68,6 +68,7 @@
         "iomanip": "cpp",
         "stack": "cpp",
         "__functional_03": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "stdlib.h": "c"
     }
 }

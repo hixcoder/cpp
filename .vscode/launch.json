@@ -8,9 +8,9 @@
             "type": "lldb",
             "request": "launch",
             "name": "Debug",
-            "program": "/Users/hboumahd/Desktop/cpp/module 00/ex01/phonebook",
+            "program": "/Users/hboumahd/Desktop/cpp/module 04/ex00/animal",
             "args": [""],
-            "cwd": "/Users/hboumahd/Desktop/cpp/module 00/ex01"
+            "cwd": "/Users/hboumahd/Desktop/cpp/module 04/ex00/"
         }
     ]
 }
