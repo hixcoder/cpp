@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:00:12 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/20 12:45:10 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/21 12:09:37 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ Animal::~Animal()
 
 void    Animal::makeSound() const
 {
-    std::cout << "The animal make a sound\n";
 }
 
 

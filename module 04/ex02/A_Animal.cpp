@@ -1,51 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   A_Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:00:12 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/21 12:11:53 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/21 12:08:53 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MyHeader.hpp"
 
-Animal::Animal()
+A_Animal::A_Animal()
 {
     this->type = "unknown";
-    std::cout << "Animal constructor called\n";
+    std::cout << "A_Animal constructor called\n";
 }
 
-Animal::Animal(const Animal &other)
+A_Animal::A_Animal(const A_Animal &other)
 {
     *this = other;
-    std::cout << "Animal constructor called\n";
+    std::cout << "A_Animal constructor called\n";
 }
 
-Animal& Animal::operator=(const Animal &other)
+A_Animal& A_Animal::operator=(const A_Animal &other)
 {
     this->type = other.type;
     return *this;
 }
 
-Animal::~Animal()
+A_Animal::~A_Animal()
 {
-    std::cout << "Animal destructor called\n";
-}
-
-void    Animal::makeSound() const
-{
+    std::cout << "A_Animal destructor called\n";
 }
 
 
-std::string Animal::getType() const
+std::string A_Animal::getType() const
 {
     return this->type;
 }
 
-void Animal::setType(std::string type)
+void A_Animal::setType(std::string type)
 {
     this->type = type;
 }

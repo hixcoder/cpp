@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 10:14:08 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/21 10:22:01 by hboumahd         ###   ########.fr       */
+/*   Created: 2022/12/20 10:14:16 by hboumahd          #+#    #+#             */
+/*   Updated: 2022/12/21 12:18:20 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 # include <iostream>
 # include <string>
 # include "Brain.hpp"
-# include "Animal.hpp"
+# include "A_Animal.hpp"
 
-class Cat: public Animal
+class Dog : public A_Animal
 {
 private:
-    Brain *catBrain;
+    Brain* dogBrain;
 public:
-    Cat();
-    Cat(const Cat &other);
-    Cat& operator=(const Cat &other);
-    ~Cat();
+    Dog();
+    Dog(const Dog &other);
+    Dog& operator=(const Dog &other);
+    ~Dog();
 
     void    makeSound() const;
-    Brain *getCatBrain() const;
-    void setCatBrain(Brain *catBrain);
+    
+    Brain *getDogBrain() const;
+    void setDogBrain(Brain *DogBrain);
 };

@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:14:16 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/20 13:21:30 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/21 10:54:09 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,7 @@ public:
     ~Dog();
 
     void    makeSound() const;
+    
+    Brain *getDogBrain() const;
+    void setDogBrain(Brain *DogBrain);
 };

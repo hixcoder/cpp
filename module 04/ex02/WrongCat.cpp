@@ -1,51 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongCat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 10:00:12 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/21 12:11:53 by hboumahd         ###   ########.fr       */
+/*   Created: 2022/12/20 10:14:11 by hboumahd          #+#    #+#             */
+/*   Updated: 2022/12/20 12:41:05 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MyHeader.hpp"
 
-Animal::Animal()
+WrongCat::WrongCat()
 {
-    this->type = "unknown";
-    std::cout << "Animal constructor called\n";
+    this->type = "WrongCat";
+    std::cout << "WrongCat constructor called\n";
 }
 
-Animal::Animal(const Animal &other)
+WrongCat::WrongCat(const WrongCat &other)
 {
     *this = other;
-    std::cout << "Animal constructor called\n";
+    std::cout << "WrongCat constructor called\n";
 }
 
-Animal& Animal::operator=(const Animal &other)
+WrongCat& WrongCat::operator=(const WrongCat &other)
 {
     this->type = other.type;
     return *this;
 }
 
-Animal::~Animal()
+WrongCat::~WrongCat()
 {
-    std::cout << "Animal destructor called\n";
+    std::cout << "WrongCat destructor called\n";
 }
 
-void    Animal::makeSound() const
+void    WrongCat::makeSound() const
 {
-}
-
-
-std::string Animal::getType() const
-{
-    return this->type;
-}
-
-void Animal::setType(std::string type)
-{
-    this->type = type;
+    std::cout << "The WrongCat make a sound\n";
 }
