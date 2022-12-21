@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:14:11 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/21 10:21:41 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/21 14:10:50 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ Cat::Cat(const Cat &other)
 
 Cat& Cat::operator=(const Cat &other)
 {
-    this->catBrain = other.catBrain;
+    delete this->catBrain;
+    this->catBrain = new Brain(*other.catBrain);
     this->type = other.type;
     return *this;
 }

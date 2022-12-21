@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:14:13 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/21 10:48:26 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/21 14:09:18 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ Dog::Dog(const Dog &other)
 
 Dog& Dog::operator=(const Dog &other)
 {
-    this->dogBrain = other.dogBrain;
+    delete this->dogBrain;
+    this->dogBrain = new Brain(*other.dogBrain);
     this->type = other.type;
     return *this;
 }

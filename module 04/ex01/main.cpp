@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 09:58:39 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/21 11:52:54 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/21 14:20:11 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ int main()
     Cat *l2 = new Cat();
     printAnimalIdeas(l2->getCatBrain(), 1);
     delete l2;
+
     return 0;
 }
