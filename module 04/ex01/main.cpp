@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 09:58:39 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/21 14:20:11 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/21 16:21:29 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int main()
     for (size_t i = 0; i < len; i++)
     {
         if (i < (len / 2))
-            a[i] = new Dog();
+            new(a[i]) Dog();
         else
             a[i] = new Cat();
     }
