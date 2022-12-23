@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 09:40:36 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/23 15:47:40 by hboumahd         ###   ########.fr       */
+/*   Created: 2022/12/23 15:50:28 by hboumahd          #+#    #+#             */
+/*   Updated: 2022/12/23 16:02:40 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-# include<iostream>
-# include<string>
+# include <iostream>
+# include <string>
 
-class Bureaucrat
+class Form
 {
 private:
     const std::string name;
-    int grade;
+    bool isSigned;
+    const int grade;
+    const int requiredGrade;
 
 public:
-    Bureaucrat();
-    Bureaucrat(const std::string Name, int Grade);
-    Bureaucrat(const Bureaucrat &other);
-    Bureaucrat& operator=(const Bureaucrat &other);
-    ~Bureaucrat();
+    Form();
+    Form(const std::string Name, int Grade);
+    Form(const Form &other);
+    Form& operator=(const Form &other);
+    ~Form();
     
     class GradeTooHighException: public std::exception
     {
@@ -37,12 +39,4 @@ public:
         public:
             virtual const char* what() const throw() { return "GradeTooLowException"; }
     };
-    
-    void incrementGrade();
-    void decrementGrade();
-    std::string getName() const;
-    int getGrade() const;
-
 };
-
-std::ostream& operator<<(std::ostream &output, const Bureaucrat &other);
