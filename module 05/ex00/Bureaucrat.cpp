@@ -6,14 +6,15 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 09:40:41 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/23 15:39:07 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/24 14:01:37 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MyHeader.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat(): name("unknown")
 {
+    this->grade = 150;
 }
 
 Bureaucrat::Bureaucrat(const std::string Name, int Grade) : name(Name), grade(Grade)
@@ -25,7 +26,6 @@ Bureaucrat::Bureaucrat(const std::string Name, int Grade) : name(Name), grade(Gr
     }
     this->grade = Grade;
 }
-
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other)
 {

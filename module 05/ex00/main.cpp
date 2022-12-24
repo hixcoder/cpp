@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 09:36:38 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/23 15:48:36 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/23 16:10:10 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main()
 
         Bureaucrat c("rachid", 149);
         c.decrementGrade();
-        // c.decrementGrade();
+        c.decrementGrade();
 
         std::cout << b << "\n";
         std::cout << c << "\n";

@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MyHeader.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 15:51:48 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/24 12:44:55 by hboumahd         ###   ########.fr       */
+/*   Created: 2022/12/23 09:36:38 by hboumahd          #+#    #+#             */
+/*   Updated: 2022/12/24 15:49:23 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "MyHeader.hpp"
 
-# include <iostream>
-# include <string>
-# include "Form.hpp"
-# include "Bureaucrat.hpp"
+int main()
+{
+    try 
+    {
+       AForm *form1 = new PresidentialPardonForm("afds", 12,12);
+       std::cout << *form1;
+        
+    } catch (std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+}
+
 

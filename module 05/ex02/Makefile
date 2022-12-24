@@ -6,7 +6,7 @@
 #    By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 11:10:47 by hboumahd          #+#    #+#              #
-#    Updated: 2022/12/24 12:30:33 by hboumahd         ###   ########.fr        #
+#    Updated: 2022/12/24 15:14:23 by hboumahd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,13 @@ NAME = form
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 CPP = clang++
 
-SRCS =	main.cpp Bureaucrat.cpp Form.cpp
+SRCS =	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp \
+		PresidentialPardonForm.cpp
 
 SRCOBJ = ${SRCS:.cpp=.o}
 
-Include = MyHeader.hpp Bureaucrat.hpp Form.hpp
+Include =	MyHeader.hpp Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp \
+			RobotomyRequestForm.hpp PresidentialPardonForm.hpp
 
 # -g for the debugger
 %.o:%.cpp ${Include}

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:50:28 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/24 13:08:17 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/24 14:28:02 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 //                 constructors
 // ------------------------------------------
 
-Form::Form() : name("unknown"), requiredGradeToSign(50), requiredGradeToExecute(50)
+AForm::AForm() : name("unknown"), requiredGradeToSign(50), requiredGradeToExecute(50)
 {
     this->isSigned = false;
 }
 
-Form::Form(const std::string Name, const int RequiredGradeToSign, const int RequiredGradeToExecute)
+AForm::AForm(const std::string Name, const int RequiredGradeToSign, const int RequiredGradeToExecute)
     :name(Name), requiredGradeToSign(RequiredGradeToSign), requiredGradeToExecute(RequiredGradeToExecute)
 {
     if (this->requiredGradeToSign > 150 || this->requiredGradeToExecute > 150) {
@@ -32,19 +32,19 @@ Form::Form(const std::string Name, const int RequiredGradeToSign, const int Requ
     this->isSigned = false;
 }
 
-Form::Form(const Form &other)
+AForm::AForm(const AForm &other)
     :name(other.name), requiredGradeToSign(other.requiredGradeToSign), requiredGradeToExecute(other.requiredGradeToExecute)
 {
     *this = other;
 }
 
-Form& Form::operator=(const Form &other)
+AForm& AForm::operator=(const AForm &other)
 {
     this->isSigned = other.isSigned;
     return (*this);
 }
 
-Form::~Form()
+AForm::~AForm()
 {
 }
 
@@ -52,7 +52,7 @@ Form::~Form()
 //                functions
 // ------------------------------------------
 
-void Form::beSigned(Bureaucrat b)
+void AForm::beSigned(Bureaucrat b)
 {
     if (b.getGrade() <= this->requiredGradeToSign)
         this->isSigned = true;
@@ -65,22 +65,22 @@ void Form::beSigned(Bureaucrat b)
 //           getters and setters
 // ------------------------------------------
 
-std::string Form::getName() const
+std::string AForm::getName() const
 {
     return this->name;
 }
 
-bool Form::getIsSigned() const
+bool AForm::getIsSigned() const
 {
     return this->isSigned;
 }
 
-int Form::getRequiredGradeToSign() const
+int AForm::getRequiredGradeToSign() const
 {
     return this->requiredGradeToSign;
 }
 
-int Form::getRequiredGradeToExecute() const
+int AForm::getRequiredGradeToExecute() const
 {
     return this->requiredGradeToExecute;
 }
@@ -89,9 +89,9 @@ int Form::getRequiredGradeToExecute() const
 //           external functions
 // ------------------------------------------
 
-std::ostream& operator<<(std::ostream &output, const Form &other)
+std::ostream& operator<<(std::ostream &output, const AForm &other)
 {
-    output << "+Form informations:\n"
+    output << "+AForm informations:\n"
         << "==> name: " << other.getName() << "\n"
         << "==> required grade to sign: " << other.getRequiredGradeToSign() << "\n"
         << "==> required grade to execute: " << other.getRequiredGradeToExecute() << "\n"
