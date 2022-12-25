@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 14:35:51 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/25 13:21:25 by hboumahd         ###   ########.fr       */
+/*   Created: 2022/12/24 14:34:45 by hboumahd          #+#    #+#             */
+/*   Updated: 2022/12/25 15:28:52 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,30 @@
 //                 constructors
 // ------------------------------------------
 
-RobotomyRequestForm::RobotomyRequestForm() 
-    :AForm("RobotomyRequestForm", 72, 45)
+PresidentialPardonForm::PresidentialPardonForm() 
+    :AForm("PresidentialPardonForm", 25, 5)
 {
   this->target = "unknown";
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target)
-    :AForm("RobotomyRequestForm", 72, 45) 
+PresidentialPardonForm::PresidentialPardonForm(std::string target)
+    :AForm("PresidentialPardonForm", 25, 5) 
 {
   this->target = target;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other)
 {
     *this = other;
 }
 
-RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
+PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
 {
     this->target = other.target;
     return (*this);
 }
 
-RobotomyRequestForm::~RobotomyRequestForm()
+PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 
@@ -47,17 +47,12 @@ RobotomyRequestForm::~RobotomyRequestForm()
 //                functions
 // ------------------------------------------
 
-void RobotomyRequestForm::executeMyForm() const
+void PresidentialPardonForm::executeMyForm() const
 {
-    int isSuccessfull = rand() % 2;
-    std::cout << "Some drilling noises...\n";
-    if (isSuccessfull)
-        std::cout << this->target << " has been robotomized!  :)\n";
-    else
-        std::cout << "the robotomy failed.  :(\n";
+    std::cout << this->target << " has been pardoned by Zaphod Beeblebrox.\n";
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const & executor) const
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
     if (!this->getIsSigned())
         throw FormIsNotSigned();

@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:50:28 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/24 13:00:18 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/25 11:32:58 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ public:
 
     std::string getName() const;
     bool getIsSigned() const;
+    void setIsSigned(bool sign);
     int getRequiredGradeToSign() const;
     int getRequiredGradeToExecute() const;
 };

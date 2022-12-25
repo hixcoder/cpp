@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:51:48 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/25 12:12:19 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/25 15:27:43 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@
 # include "ShrubberyCreationForm.hpp"
 # include "RobotomyRequestForm.hpp"
 # include "PresidentialPardonForm.hpp"
+# include "Intern.hpp"
 

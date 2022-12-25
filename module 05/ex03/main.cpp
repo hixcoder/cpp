@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MyHeader.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 15:51:48 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/25 12:12:19 by hboumahd         ###   ########.fr       */
+/*   Created: 2022/12/23 09:36:38 by hboumahd          #+#    #+#             */
+/*   Updated: 2022/12/25 15:27:55 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "MyHeader.hpp"
 
-# include <iostream>
-# include <string>
-# include <fstream>
-# include <istream>
-# include "AForm.hpp"
-# include "Bureaucrat.hpp"
-# include "ShrubberyCreationForm.hpp"
-# include "RobotomyRequestForm.hpp"
-# include "PresidentialPardonForm.hpp"
+int main()
+{
+    try 
+    {
+        Intern someRandomIntern;
+        AForm* rrf;
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        
+    } catch (std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+}
+
 

@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                         :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 14:35:41 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/25 13:30:15 by hboumahd         ###   ########.fr       */
+/*   Created: 2022/12/25 15:22:12 by hboumahd          #+#    #+#             */
+/*   Updated: 2022/12/25 16:17:41 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "MyHeader.hpp"
 
-class ShrubberyCreationForm: public AForm
+class Intern
 {
 private:
-    std::string target;
+    AForm *(Intern::*fPtr[3])(std::string target);
+    
 public:
-    ShrubberyCreationForm(std::string target);
+    Intern(std::string target);
     
-    ShrubberyCreationForm();
-    ShrubberyCreationForm(const ShrubberyCreationForm &other);
-    ShrubberyCreationForm& operator=(const ShrubberyCreationForm &other);
-    ~ShrubberyCreationForm();
+    Intern();
+    Intern(const Intern &other);
+    Intern& operator=(const Intern &other);
+    ~Intern();
     
-    void execute(Bureaucrat const & executor) const;
-    void executeMyForm() const;
+    AForm *makeForm(std::string Fname, std::string target);
+    AForm *shrubberyCreation(std::string target);
+    AForm *robotomyRequest(std::string target);
+    AForm *presidentialPardon(std::string target);
 };
