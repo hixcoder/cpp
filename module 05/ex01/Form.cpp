@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:50:28 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/25 11:33:39 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/25 17:04:36 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,6 @@ std::string Form::getName() const
 bool Form::getIsSigned() const
 {
     return this->isSigned;
-}
-
-void AForm::setIsSigned(bool sign)
-{
-      this->isSigned = sign;
 }
 
 int Form::getRequiredGradeToSign() const

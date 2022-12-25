@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 09:36:38 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/23 16:10:10 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/25 16:52:24 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,11 @@ int main()
 {
     try 
     {
-        Bureaucrat b("hamid", 3);
-        b.decrementGrade();
-        b.decrementGrade();
-        b.decrementGrade();
+        Bureaucrat b("hamid", 2);
+        b.incrementGrade();
+        // b.incrementGrade();
 
-        Bureaucrat c("rachid", 149);
+        Bureaucrat c("rachid", 140);
         c.decrementGrade();
         c.decrementGrade();
 

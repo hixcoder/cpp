@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 09:40:36 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/24 14:01:51 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/25 16:55:05 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ public:
     void decrementGrade();
     std::string getName() const;
     int getGrade() const;
-
 };
 
 std::ostream& operator<<(std::ostream &output, const Bureaucrat &other);

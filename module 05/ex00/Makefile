@@ -6,14 +6,14 @@
 #    By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 11:10:47 by hboumahd          #+#    #+#              #
-#    Updated: 2022/12/23 11:01:37 by hboumahd         ###   ########.fr        #
+#    Updated: 2022/12/25 16:44:32 by hboumahd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = bureaucrat
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-CPP = clang++
+CPP = c++
 
 SRCS =	main.cpp Bureaucrat.cpp
 

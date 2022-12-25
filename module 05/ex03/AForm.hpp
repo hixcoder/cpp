@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:50:28 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/25 15:15:06 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/25 18:40:12 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
     AForm(const std::string Name, const int RequiredGradeToSign, const int RequiredGradeToExecute);
     AForm(const AForm &other);
     AForm& operator=(const AForm &other);
-    ~AForm();
+    virtual ~AForm();
     
     class GradeTooHighException: public std::exception
     {

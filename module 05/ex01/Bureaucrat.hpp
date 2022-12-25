@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 09:40:36 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/24 13:02:09 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/25 17:18:28 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ public:
     
     void incrementGrade();
     void decrementGrade();
-    void signForm(Form f);
+    void signForm(Form &f);
 
     
     std::string getName() const;

@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 09:36:38 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/25 15:12:37 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/25 18:09:41 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ int main()
     {
         // test1
         // Bureaucrat b1("adil", 5);
-        // ShrubberyCreationForm formP("school");
+        // ShrubberyCreationForm formP("fes");
         // formP.beSigned(b1);
         // formP.execute(b1);
 
         // test2
-        // Bureaucrat b1("adil", 6);
+        // Bureaucrat b1("adil", 5);
         // RobotomyRequestForm formP("dragon");
         // std::cout << b1 << "\n";
         // formP.beSigned(b1);
@@ -37,12 +37,12 @@ int main()
 
         // test3
         // Bureaucrat b1("adil", 5);
-        // PresidentialPardonForm formP("school");
+        // PresidentialPardonForm formP("school form");
         // formP.beSigned(b1);
         // formP.execute(b1);
 
         // test4
-        Bureaucrat b1("adil", 30);
+        Bureaucrat b1("adil", 5);
         PresidentialPardonForm formP("school");
         b1.signForm(formP);
         std::cout << formP;

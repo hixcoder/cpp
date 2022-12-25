@@ -6,14 +6,14 @@
 #    By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 11:10:47 by hboumahd          #+#    #+#              #
-#    Updated: 2022/12/25 16:21:15 by hboumahd         ###   ########.fr        #
+#    Updated: 2022/12/25 18:14:34 by hboumahd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = form
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-CPP = clang++
+CPP = c++
 
 SRCS =	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp \
 		PresidentialPardonForm.cpp Intern.cpp
