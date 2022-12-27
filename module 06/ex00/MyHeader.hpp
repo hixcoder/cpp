@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:51:48 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/26 15:21:23 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/27 14:15:12 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string>
 # include <cstdlib>
 # include <limits>
+#include <iomanip>
 
 #define INT_MAX2 std::numeric_limits<int>::max()
 #define INT_MIN2 std::numeric_limits<int>::min()
