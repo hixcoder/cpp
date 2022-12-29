@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:43:54 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/16 16:08:57 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/29 16:31:58 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void    PhoneBook::SearchContact(int t_len)
     std::string index;
     int i;
     int len;
-    
+
     if (t_len > 8)
         len = 8;
     else

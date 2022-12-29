@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 12:10:50 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/06 15:40:51 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/29 16:22:20 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ int main()
     while (1)
     {
         std::cout << "Please enter a command: [ADD, SEARCH, EXIT]\n";
-        getline(std::cin, command);
+       if (!getline(std::cin, command))
+            return(1);
         if (command.compare("ADD") == 0)
         {
             CreateContact(contact);
