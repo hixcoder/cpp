@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 09:36:38 by hboumahd          #+#    #+#             */
-/*   Updated: 2022/12/29 14:26:56 by hboumahd         ###   ########.fr       */
+/*   Updated: 2022/12/29 18:23:02 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ uintptr_t serialize(Data* ptr)
 
 Data* deserialize(uintptr_t raw)
 {
-    if (raw == 0 || raw > UINTPTR_MAX2)
+    if (raw == 0)
         return NULL;
     return reinterpret_cast<Data*> (raw); 
 }
@@ -34,9 +34,6 @@ int main()
     uintptr_t raw;
 
     pd = &d;
-    d.name = "hamid";
-    d.age = 50;
-    d.grade = 5;
     d.sayHello();
 
     std::cout << "this is pd  = " << pd << "\n";
