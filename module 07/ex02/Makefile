@@ -6,11 +6,11 @@
 #    By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 11:10:47 by hboumahd          #+#    #+#              #
-#    Updated: 2023/01/15 12:36:46 by hboumahd         ###   ########.fr        #
+#    Updated: 2023/01/15 12:41:53 by hboumahd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = iter
+NAME = array
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 CPP = c++
@@ -19,7 +19,7 @@ SRCS =	main.cpp
 
 SRCOBJ = ${SRCS:.cpp=.o}
 
-Include = iter.hpp 
+Include = Array.hpp 
 
 # -g for the debugger
 %.o:%.cpp ${Include}
