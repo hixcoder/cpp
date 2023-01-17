@@ -6,18 +6,11 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 09:36:38 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/01/17 12:59:02 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/01/17 13:48:34 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
-
-template<typename T>
-void iter(T *array, int len, void (*func)(T &element))
-{
-    for (int i = 0; i < len; i++)
-        func(array[i]);
-}
 
 void init(int &element)
 {

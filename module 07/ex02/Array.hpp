@@ -42,8 +42,6 @@ public:
 
     Array &operator=(const Array &other)
     {
-        this->n = other.n;
-        this->array = new T[n];
         for (unsigned int i = 0; i < other.size() && i < this->n ; i++)
         {
             this->array[i] = other.array[i];
@@ -53,6 +51,8 @@ public:
    
     Array(const Array &other)
     {
+        this->n = other.n;
+        this->array = new T[n];
         *this = other;
     }
 
