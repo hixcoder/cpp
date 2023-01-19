@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   Span.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,17 +14,36 @@
 
 # include <iostream>
 # include <string>
-# include <vector>
 
-template<typename T>
-typename T::iterator easyfind(T container, int v)
+class Span
 {
-    typename T::iterator it;
-    for (it = container.begin(); it != container.end(); it++)
+private:
+    int *span;
+    unsigned int n;
+    unsigned int stillPlace;
+
+public:
+    class NoPlaceLeft: public std::exception
     {
-        if (*it == v)
-            return (it);
-    }
-    throw std::invalid_argument("didntFindTheValue");
-    
-}
+        public:
+            virtual const char* what() const throw() { return "NoPlaceLeft"; }
+    };
+    class NotEnoughtNumbersStored: public std::exception
+    {
+        public:
+            virtual const char* what() const throw() { return "NotEnoughtNumbersStored"; }
+    };
+
+    Span();
+    Span(const Span &other);
+    Span(unsigned int N);
+    ~Span();
+    Span &operator=(const Span &other);
+
+    void addNumber(int nbr);
+    int shortestSpan()const;
+    int longestSpan()const;
+    unsigned int size() const;
+    int *getSpan() const;
+};
+

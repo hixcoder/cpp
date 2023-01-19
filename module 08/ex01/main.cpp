@@ -6,33 +6,31 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 09:36:38 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/01/18 14:49:59 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/01/19 15:22:48 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
+#include "Span.hpp"
 
-int main( void ) {
-
-    std::vector<int> myVector;
-    std::vector<int>::iterator it;
-    
-    myVector.push_back(50);
-    myVector.push_back(510);
-    myVector.push_back(150);
-    myVector.push_back(250);
-    
-    // int i = -1;
-    //     myVector.pop_back();
-    // for (it = myVector.begin(); it != myVector.end(); it++)
-    // {
-    //     std::cout << "myvector[" << ++i << "] = " << *it << "\n";
-    // }
-    
+int main()
+{
     try
     {
-        std::vector<int>::iterator it = easyfind(myVector, 552);
-        std::cout << "this is the found value: " << *it << "\n";
+        Span sp(Span(5));
+        sp.addNumber(3);
+        sp.addNumber(17);
+        sp.addNumber(9);
+        sp.addNumber(11);
+        sp.addNumber(6);
+        
+        int *span1 = sp.getSpan();
+        for (size_t i = 0; i < sp.size(); i++)
+        {
+            std::cout << "span1[" << i << "]= " << span1[i] << "\n"; 
+        }
+        
+        std::cout << "\nshortestSpan: " << sp.shortestSpan() << std::endl;
+        std::cout << "longestSpan : " << sp.longestSpan() << std::endl;
     }
     catch(const std::exception& e)
     {
