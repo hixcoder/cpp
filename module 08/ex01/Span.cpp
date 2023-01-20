@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Span.cpp                                       :+:      :+:    :+:   */
+/*   MutantStack.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,14 +12,14 @@
 
 #include "Span.hpp"
 
-Span::Span()
+MutantStack::MutantStack()
 {
     this->span = new int[0];
     this->n = 0;
     this->stillPlace = 0;
 }
 
-Span::Span(const Span &other)
+MutantStack::MutantStack(const MutantStack &other)
 {
     this->n = other.n;
     this->span = new int[n];
@@ -27,19 +27,19 @@ Span::Span(const Span &other)
     *this = other;
 }
 
-Span::Span(unsigned int N)
+MutantStack::MutantStack(unsigned int N)
 {
     this->span = new int[N];
     this->n = N;
     this->stillPlace = 0;
 }
 
-Span::~Span()
+MutantStack::~MutantStack()
 {
     delete[] span;
 }
 
-Span& Span::operator=(const Span &other)
+MutantStack& MutantStack::operator=(const MutantStack &other)
 {
     for (unsigned int i = 0; i < other.size() && i < this->n ; i++)
     {
@@ -49,7 +49,7 @@ Span& Span::operator=(const Span &other)
 }
 
 
-void Span::addNumber(int nbr)
+void MutantStack::addNumber(int nbr)
 {
     int index;
 
@@ -63,7 +63,7 @@ void Span::addNumber(int nbr)
         throw NoPlaceLeft();
 }
 
-int Span::shortestSpan()const
+int MutantStack::shortestSpan()const
 {
     int shSpan;
     int *tmp;
@@ -87,7 +87,7 @@ int Span::shortestSpan()const
     return shSpan;
 }
 
-int Span::longestSpan()const
+int MutantStack::longestSpan()const
 {
     int loSpan;
     int tmp[this->stillPlace];
@@ -101,12 +101,19 @@ int Span::longestSpan()const
     return loSpan;
 }
 
-unsigned int Span::size()const
+void MutantStack::fillSpan(size_t N)
+{
+    srand(time(NULL));
+    for (size_t i = 0; i < this->size() && i < N; i++)
+        this->addNumber(rand() % 1000);
+}
+
+unsigned int MutantStack::size()const
 {
     return this->n;
 }
 
-int *Span::getSpan() const
+int *MutantStack::getSpan() const
 {
     return this->span;
 }

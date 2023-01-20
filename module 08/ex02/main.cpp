@@ -6,34 +6,35 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 09:36:38 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/01/20 12:44:57 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/01/20 12:52:28 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Span.hpp"
+#include "MutantStack.hpp"
 
 int main()
 {
-    try
+    std::stack<int> myStack;
+    MutantStack<int> mstack;
+    mstack.push(5);
+    mstack.push(17);
+    std::cout << mstack.top() << std::endl;
+    mstack.pop();
+    std::cout << mstack.size() << std::endl;
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    //[...]
+    mstack.push(0);
+    MutantStack<int>::iterator it = mstack.begin();
+    MutantStack<int>::iterator ite = mstack.end();
+    ++it;
+    --it;
+    while (it != ite)
     {
-        unsigned int N = 20;
-        MutantStack sp(N);
-        // sp.addNumber(-31);
-        sp.fillSpan(N);
-        
-        int *span1 = sp.getSpan();
-        for (size_t i = 0; i < sp.size(); i++)
-        {
-            std::cout << "span1[" << i << "]= " << span1[i] << "\n"; 
-        }
-        
-        std::cout << "\nshortestSpan: " << sp.shortestSpan() << std::endl;
-        std::cout << "longestSpan : " << sp.longestSpan() << std::endl;
+    std::cout << *it << std::endl;
+    ++it;
     }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    
-    return 0;
+    std::stack<int> s(mstack);
+return 0;
 }
