@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MutantStack.cpp                                       :+:      :+:    :+:   */
+/*   Span.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,61 +12,57 @@
 
 #include "Span.hpp"
 
-MutantStack::MutantStack()
+Span::Span()
 {
-    this->span = new int[0];
     this->n = 0;
     this->stillPlace = 0;
 }
 
-MutantStack::MutantStack(const MutantStack &other)
+Span::Span(const Span &other)
 {
     this->n = other.n;
-    this->span = new int[n];
     this->stillPlace = 0;
     *this = other;
 }
 
-MutantStack::MutantStack(unsigned int N)
+Span::Span(unsigned int N)
 {
-    this->span = new int[N];
     this->n = N;
     this->stillPlace = 0;
 }
 
-MutantStack::~MutantStack()
+Span::~Span()
 {
-    delete[] span;
 }
 
-MutantStack& MutantStack::operator=(const MutantStack &other)
+Span& Span::operator=(const Span &other)
 {
     for (unsigned int i = 0; i < other.size() && i < this->n ; i++)
     {
-        this->span[i] = other.span[i];
+        this->span.push_back(other.span[i]);
     }
     return *this;
 }
 
 
-void MutantStack::addNumber(int nbr)
+void Span::addNumber(int nbr)
 {
     int index;
 
     if (this->stillPlace < this->n)
     {
         index = this->stillPlace;
-        this->span[index] = nbr;
+        this->span.push_back(nbr);
         stillPlace++;
     }
     else
         throw NoPlaceLeft();
 }
 
-int MutantStack::shortestSpan()const
+int Span::shortestSpan()const
 {
     int shSpan;
-    int *tmp;
+    std::vector<int> tmp;
     int cmp;
 
     if (this->n <= 1 || this->stillPlace <= 1)
@@ -87,7 +83,7 @@ int MutantStack::shortestSpan()const
     return shSpan;
 }
 
-int MutantStack::longestSpan()const
+int Span::longestSpan()const
 {
     int loSpan;
     int tmp[this->stillPlace];
@@ -101,19 +97,24 @@ int MutantStack::longestSpan()const
     return loSpan;
 }
 
-void MutantStack::fillSpan(size_t N)
+void Span::fillSpan(size_t N)
 {
     srand(time(NULL));
     for (size_t i = 0; i < this->size() && i < N; i++)
         this->addNumber(rand() % 1000);
 }
 
-unsigned int MutantStack::size()const
+unsigned int Span::size()const
 {
     return this->n;
 }
 
-int *MutantStack::getSpan() const
+unsigned int Span::lenght()const
+{
+    return this->stillPlace;
+}
+
+std::vector<int> Span::getSpan() const
 {
     return this->span;
 }

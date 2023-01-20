@@ -16,11 +16,12 @@
 # include <string>
 # include <algorithm>
 # include <climits>
+# include <vector>
 
-class MutantStack
+class Span
 {
 private:
-    int *span;
+    std::vector<int> span;
     unsigned int n;
     unsigned int stillPlace;
 
@@ -36,17 +37,18 @@ public:
             virtual const char* what() const throw() { return "NotEnoughtNumbersStored"; }
     };
 
-    MutantStack();
-    MutantStack(const MutantStack &other);
-    MutantStack(unsigned int N);
-    ~MutantStack();
-    MutantStack &operator=(const MutantStack &other);
+    Span();
+    Span(const Span &other);
+    Span(unsigned int N);
+    ~Span();
+    Span &operator=(const Span &other);
 
     void addNumber(int nbr);
     void fillSpan(size_t N);
     int shortestSpan()const;
     int longestSpan()const;
     unsigned int size() const;
-    int *getSpan() const;
+    unsigned int lenght() const;
+    std::vector<int> getSpan() const;
 };
 
