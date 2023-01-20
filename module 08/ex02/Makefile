@@ -6,20 +6,20 @@
 #    By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 11:10:47 by hboumahd          #+#    #+#              #
-#    Updated: 2023/01/19 14:43:56 by hboumahd         ###   ########.fr        #
+#    Updated: 2023/01/20 15:31:53 by hboumahd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = span
+NAME = mutantStack
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 CPP = c++
 
-SRCS =	main.cpp Span.cpp  
+SRCS =	main.cpp  
 
 SRCOBJ = ${SRCS:.cpp=.o}
 
-Include = Span.hpp 
+Include = MutantStack.hpp
 
 # -g for the debugger
 %.o:%.cpp ${Include}
