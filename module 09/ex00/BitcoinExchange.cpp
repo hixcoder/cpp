@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:06:13 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/03/20 17:54:55 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/03/20 20:10:29 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 
 BitcoinExchange::BitcoinExchange()
 {
-    _priceData.push_back("");
-    _amountData.push_back("");
-    _resultData.push_back("");
 }
 
 BitcoinExchange::BitcoinExchange(std::string priceData, std::string amoutData)
 {
     _priceData = fetchData(priceData);
-    _amountData = fetchData(amoutData);
+    // _amountData = fetchData(amoutData);
+    (void)amoutData;
+    // for (std::map<std::string,std::string>::iterator it=_priceData.begin(); it!=_priceData.end(); ++it)
+    // {
+    //     std::cout << it->first << ", " << it->second << "\n";
+    // }
+    
     
 }
 
@@ -30,39 +33,44 @@ BitcoinExchange::~BitcoinExchange()
 {
 }
 
-std::vector<std::string> BitcoinExchange::fetchData(std::string filename)
+std::map<std::string, std::string> BitcoinExchange::fetchData(std::string filename)
 {
-    std::vector<std::string> tmpData;
+    std::map<std::string, std::string> tmpDataMap;
     std::ifstream file(filename);
-    std::string line;
-    while (std::getline(file, line)) 
-        tmpData.push_back(line);
-    return tmpData;
+    std::string line, key, value;
+    int go = 0;
+    
+    int i = 0;
+    while (std::getline(file, line))
+    {
+        if (i == 0 && line == "date,exchange_rate")
+            continue;
+        for (size_t j = 0; j < line.length(); j++)
+        {
+            if (line[j] == ',')
+            {
+                go = 1;
+                j++;
+            }
+            if (go == 0)
+                key += line[j];
+            else if (go == 1)
+                value += line[j];
+        }
+        std::cout << key << " ==> " << value << "\n";
+        tmpDataMap[key] = value;
+        key = "";
+        value = "";
+        i++;
+    }
+    return tmpDataMap;
 }
 
 void BitcoinExchange::calculateResult()
 {
     // 2011-01-03 => 3 = 0.9
     // date + "=>" + amount = value;
-    std::vector<std::string> _amountItem;
-    std::vector<std::string> _priceItem;
     // int result;
-
-    
-    for (size_t i = 0; i < _amountData.size(); i++)
-    {
-        _amountItem = ft_split(_amountData[i], ',');
-        for (size_t i = 0; i < _priceData.size(); i++)
-        {
-            _priceItem = ft_split(_priceData[i], ',');
-            if (_amountItem[0] == _priceItem[0])
-            {
-                std::cout << _amountItem[0] << " => " << _amountItem[1] << " = " << atoi(_amountItem[1].c_str()) * atoi(_amountItem[1].c_str());
-            }
-            
-        }
-        
-    }
     
     
 }
@@ -102,31 +110,18 @@ time_t BitcoinExchange::dateToSec(std::string date)
     return dateToSec;
 }
 
-std::vector<std::string> BitcoinExchange::ft_split(std::string str, char separator)
-{
-    std::vector<std::string> result;
-    size_t i = 0;
-    std::string s;
-    while (i < str.size())
-    {
-        if (str[i] == separator || str[i] == '\n')
-        {
-            if (!s.empty())
-            {
-                result.push_back(s);
-                s.clear();
-            }
-            if (str[i] == '\n')
-                break;
-        }
-        else
-            s += str[i];
-        i++;
-    }
-    if (!s.empty())
-        result.push_back(s);
-    return (result);
-}
 
-
-
+// std::map<std::string, std::string> splitString(std::string str, std::string delimiter)
+// {
+//     std::map<std::string, std::string> result;
+//     size_t pos = 0;
+//     std::string token;
+//     while ((pos = str.find(delimiter)) != std::string::npos)
+//     {
+//         token = str.substr(0, pos);
+//         result.push_back(token);
+//         str.erase(0, pos + delimiter.length());
+//     }
+//     result.push_back(str);
+//     return result;
+// }

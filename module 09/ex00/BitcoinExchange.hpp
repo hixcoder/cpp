@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:06:06 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/03/20 17:52:08 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:17:06 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 # include <iostream>
 # include <string>
-# include <vector>
 # include <fstream>
-#include <cstdlib>  // for atoi
+# include <cstdlib> 
+# include <ctime>
+# include <map>
 
 class BitcoinExchange
 {
 private:
-    std::vector<std::string> _priceData;
-    std::vector<std::string> _amountData;
-    std::vector<std::string> _resultData;
+    std::map<std::string, std::string> _priceData;
+    std::map<std::string, std::string> _amountData;
     
 
 public:
@@ -31,9 +31,8 @@ public:
     BitcoinExchange(std::string priceData, std::string amoutData);
     ~BitcoinExchange();
 
-    std::vector<std::string> fetchData(std::string filename);
+    std::map<std::string, std::string> fetchData(std::string filename);
     void calculateResult();
-    std::vector<std::string> ft_split(std::string str, char separator);
     bool validateDate(std::string date);
     time_t dateToSec(std::string date);
 };
