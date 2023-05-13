@@ -6,14 +6,14 @@
 #    By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/19 11:06:26 by hboumahd          #+#    #+#              #
-#    Updated: 2023/03/19 12:14:15 by hboumahd         ###   ########.fr        #
+#    Updated: 2023/05/13 12:26:20 by hboumahd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = btc
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror 
 CPP = c++
 
 SRCS =	main.cpp BitcoinExchange.cpp
