@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:06:13 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/05/13 16:01:59 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/05/13 23:26:23 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,38 @@ void BitcoinExchange::fetchAmountData(std::string filename)
     std::ifstream file(filename);
     std::string line;
     char key[100];
-    float value;
+    char value[100];
+    float amount;
 
     while (std::getline(file, line))
     {
         if (line == "date | value" || line == "")
             continue;
-        if (sscanf(line.c_str(), "%[^ ] | %f", key, &value) != 2)
+        // check what after |
+        if (sscanf(line.c_str(), "%[^ ] | %s", key, value) == 2)
         {
-            calculateResult(line, value, 1);
+            amount = getAmount(value);
+            calculateResult(key, amount, 0);
         }
         else
         {
-            calculateResult(key, value, 0);
+            amount = getAmount(value);
+            calculateResult(line, amount, 1);
         }
+    }
+}
+
+float BitcoinExchange::getAmount(std::string value)
+{
+    std::istringstream iss(value);
+    float floatValue;
+    if (iss >> floatValue) {
+        return floatValue;
+    }
+    else {
+        // Handle the case when the conversion fails
+        // Return a default value or throw an exception
+        return 0.0f;
     }
 }
 
