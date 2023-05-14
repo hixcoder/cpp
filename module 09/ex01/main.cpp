@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:06:21 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/05/14 13:22:16 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/05/14 14:25:37 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int main(int ac, char **av) {
 
     if (ac == 2)
     {
+        RPN rpn = RPN(av[1]);
+        rpn.calculateExpr();
     }
     else
         std::cout << "Error\n";
