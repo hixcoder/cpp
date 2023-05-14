@@ -6,20 +6,19 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:06:21 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/05/14 13:23:15 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/05/14 13:22:16 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#include "RPN.hpp"
 
 int main(int ac, char **av) {
 
     if (ac == 2)
     {
-        BitcoinExchange  btc("data.csv", av[1]);
     }
     else
-        std::cout << "Error: could not open file.\n";
+        std::cout << "Error\n";
     return 0;
 }
 

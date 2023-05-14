@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:06:06 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/05/14 12:10:38 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/05/14 13:21:19 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,14 @@
 # include <map>
 #include <cstring>
 #include <sstream>
-class BitcoinExchange
+class RPN
 {
 private:
-    std::map<std::string, float> _priceData;
-    std::map<std::string, float> _amountData;
     
 
 public:
-    BitcoinExchange();
-    BitcoinExchange(std::string priceData, std::string amountData);
-    ~BitcoinExchange();
-
-    void fetchAmountData(std::string filename);
-    void fetchPriceData(std::string filename);
-    float getAmount(std::string value);
-    void calculateResult(std::string date, std::string value, std::string line, int isBadInput);
-    bool validateDate(std::string date);
+    RPN();
+    ~RPN();
 };
 
 

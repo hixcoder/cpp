@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/19 11:06:21 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/05/14 13:23:15 by hboumahd         ###   ########.fr       */
+/*   Created: 2023/03/19 11:06:13 by hboumahd          #+#    #+#             */
+/*   Updated: 2023/05/14 13:21:28 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#include "RPN.hpp"
 
-int main(int ac, char **av) {
-
-    if (ac == 2)
-    {
-        BitcoinExchange  btc("data.csv", av[1]);
-    }
-    else
-        std::cout << "Error: could not open file.\n";
-    return 0;
+RPN::RPN()
+{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+RPN::~RPN()
+{
+}

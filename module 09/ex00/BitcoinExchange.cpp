@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:06:13 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/05/13 23:26:23 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/05/14 13:03:42 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,48 +48,87 @@ void BitcoinExchange::fetchAmountData(std::string filename)
     std::string line;
     char key[100];
     char value[100];
-    float amount;
 
     while (std::getline(file, line))
     {
         if (line == "date | value" || line == "")
             continue;
-        // check what after |
-        if (sscanf(line.c_str(), "%[^ ] | %s", key, value) == 2)
+        if (sscanf(line.c_str(), "%[^ ] | %[^\n]", key, value) == 2)
         {
-            amount = getAmount(value);
-            calculateResult(key, amount, 0);
+            calculateResult(key, value, line, 0);
         }
         else
         {
-            amount = getAmount(value);
-            calculateResult(line, amount, 1);
+            calculateResult(line, value, line, 1);
         }
     }
+}
+
+bool isFloatValid(std::string value)
+{
+    int dotNbr = 0;
+
+    if (value.length() == 0)
+    {
+        return false;
+    }
+    for (size_t i = 0; i < value.length(); i++)
+    {
+        if (value[i] == '.')
+        {
+            if (i == 0 || i == value.length() - 1)
+                return false;
+            dotNbr++;
+        }
+        if (value[i] == '-' && i != 0)
+        {
+            return false;
+        }
+        if (value[i] == '+' && i != 0)
+        {
+            return false;
+        }
+        if (value[i] == 'f' && i != value.length() - 1)
+        {
+            return false;
+        }
+        if (!std::isdigit(value[i]) && value[i] != '.' && value[i] != '-' && value[i] != '+' && value[i] != 'f')
+        {
+            return false;
+        }
+    }
+    if (dotNbr > 1)
+    {
+        return false;
+    }
+    return true;
 }
 
 float BitcoinExchange::getAmount(std::string value)
 {
     std::istringstream iss(value);
     float floatValue;
-    if (iss >> floatValue) {
+    if (iss >> floatValue)
+    {
         return floatValue;
     }
-    else {
-        // Handle the case when the conversion fails
-        // Return a default value or throw an exception
-        return 0.0f;
+    else
+    {
+        return -1.0f;
     }
 }
 
-void BitcoinExchange::calculateResult(std::string date, float amount, int isBadInput)
+void BitcoinExchange::calculateResult(std::string date, std::string value, std::string line, int isBadInput)
 {
     std::map<std::string, float>::iterator it1;
     std::map<std::string, float>::iterator it2;
-    
-    if (isBadInput == 1 || !validateDate(date))
+    float amount;
+
+
+    amount = getAmount(value);
+    if (isBadInput == 1 || !validateDate(date) || !isFloatValid(value))
     {
-        std::cout << "Error: bad input => " << date << "\n";
+        std::cout << "Error: bad input => " << line << "\n";
     }
     else if (amount > 1000)
     {
@@ -102,10 +141,12 @@ void BitcoinExchange::calculateResult(std::string date, float amount, int isBadI
     else
     {
         it1 = _priceData.find(date);
-        if (it1 != _priceData.end()) {
+        if (it1 != _priceData.end())
+        {
             std::cout << date << " => " << amount << " = " << it1->second * amount << "\n";
         }
-        else {
+        else
+        {
             it2 = _priceData.lower_bound(date);
             it2--;
             if (it2 != _priceData.end())
@@ -117,7 +158,6 @@ void BitcoinExchange::calculateResult(std::string date, float amount, int isBadI
                 std::cout << "Error: no data available for " << date << "\n";
             }
         }
-        
     }
 }
 
@@ -142,18 +182,4 @@ bool BitcoinExchange::validateDate(std::string date)
         return (false);
     }
     return true;
-}
-
-time_t BitcoinExchange::dateToSec(std::string date)
-{
-    int year, month, day;
-    time_t dateToSec;
-    struct std::tm timeinfo;
-
-    sscanf(date.c_str(), "%d-%d-%d", &year, &month, &day);
-    timeinfo.tm_year = year - 1900;
-    timeinfo.tm_mon = month - 1;
-    timeinfo.tm_mday = day;
-    dateToSec = std::mktime(&timeinfo);
-    return dateToSec;
 }
