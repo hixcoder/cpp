@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:06:06 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/05/16 16:05:44 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/05/16 18:13:04 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <iostream>
 # include <string>
 # include <vector>
-# include <list>
+# include <array>
 #include <sstream>
 
 class PmergeMe
@@ -24,7 +24,7 @@ private:
     char **_av;
     int len;
     std::vector<int> myV;
-    std::list<int> myList;
+    std::array<int, 10000> myArray;
 
 public:
     PmergeMe();
@@ -32,7 +32,8 @@ public:
     ~PmergeMe();
     
     void printBefore();
-    int stringToInt(const std::string& str);
+    int stringToInt(const std::string &str, bool doWrite);
+    bool validateNbrs();
 
     // vector functions
     void sortWithVector();
@@ -40,11 +41,11 @@ public:
     void sortIMwithVector(int l, int r);
     void sortMergeWithVector(int l, int r, int mid);
 
-    // List functions
-    void sortWithList();
-    int convertToList();
-    void sortIMwithList(int l, int r);
-    void sortMergeWithList(int l, int r, int mid);
+    // Array functions
+    void sortWithArray();
+    int convertToArray();
+    void sortIMwithArray(int l, int r);
+    void sortMergeWithArray(int l, int r, int mid);
     
 
 };

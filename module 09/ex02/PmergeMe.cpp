@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:06:13 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/05/16 15:52:22 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/05/16 18:32:31 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,15 @@ PmergeMe::~PmergeMe()
 }
 PmergeMe::PmergeMe(char **av) : _av(av)
 {
-    printBefore();
-    sortWithVector();
-    sortWithList();
+    if (!validateNbrs())
+    {
+        std::cout << "Error\n";
+    }
+    else
+    {
+        sortWithVector();
+        sortWithArray();
+    }
 }
 
 // ======================= VECTOR FUNCTIONS ================================
@@ -32,7 +38,7 @@ int PmergeMe::convertToVector()
     i = 0;
     while (_av[++i])
     {
-        intValue = stringToInt(_av[i]);
+        intValue = stringToInt(_av[i], true);
         if (intValue == -1)
         {
             return 0;
@@ -127,6 +133,7 @@ void PmergeMe::sortWithVector()
     {
         return;
     }
+    printBefore();
 
     sortIMwithVector(0, len - 1);
     clock_t end = clock();
@@ -145,9 +152,10 @@ void PmergeMe::sortWithVector()
 
 // ========================================================================
 
-// ======================= List FUNCTIONS ================================
+// ======================= Array FUNCTIONS ================================
 
-int PmergeMe::convertToList()
+
+int PmergeMe::convertToArray()
 {
     int i;
     int intValue;
@@ -155,192 +163,129 @@ int PmergeMe::convertToList()
     i = 0;
     while (_av[++i])
     {
-        intValue = stringToInt(_av[i]);
+        intValue = stringToInt(_av[i], false);
         if (intValue == -1)
         {
             return 0;
         }
-        myList.push_back(intValue);
+        myArray[i - 1] = intValue;
     }
     return 1;
 }
 
-void PmergeMe::sortMergeWithList(int l, int r, int mid)
+void PmergeMe::sortMergeWithArray(int l, int r, int mid)
 {
     int Llen, Rlen;
     Llen = mid - l + 1;
     Rlen = r - mid;
 
-    // std::vector<int> L(Llen);
-    // std::vector<int> R(Rlen);
-
-    std::list<int> L(Llen);
-    std::list<int> R(Rlen);
-
-    std::list<int>::iterator itMylist = myList.begin();
-    std::list<int>::iterator itL = L.begin();
-    std::list<int>::iterator itR = R.begin();
-
-    std::advance(itMylist, l);
-    // for (std::vector<int>::size_type i = 0; i < L.size(); i++)
-    // {
-    //     L[i] = myV[l + i];
-    // }
+    std::array<int, 5000> L;
+    std::array<int, 5000> R;
 
     for (int i = 0; i < Llen; i++)
     {
-        *itL = *itMylist;
-        std::cout << *itMylist << " ";
-        itL++;
-        itMylist++;
+        L[i] = myArray[l + i];
     }
-std::cout << "\n";
-    
-    // for (std::vector<int>::size_type i = 0; i < R.size(); i++)
-    // {
-    //     R[i] = myV[i + mid + 1];
-    // }
-    
-    itMylist = myList.begin();
-    std::advance(itMylist, mid + 1);
     for (int i = 0; i < Rlen; i++)
     {
-        *itR = *itMylist;
-        std::cout << *itMylist << " ";
-        itR++;
-        itMylist++;
+        R[i] = myArray[i + mid + 1];
     }
 
-std::cout << "\n";
-
-    // int i, j, k;
-    // i = l;
-    // j = 0;
-    // k = 0;
-    // while (j < Llen && k < Rlen)
-    // {
-    //     if (L[j] <= R[k])
-    //     {
-    //         myV[i] = L[j];
-    //         j++;
-    //     }
-    //     else if (L[j] > R[k])
-    //     {
-    //         myV[i] = R[k];
-    //         k++;
-    //     }
-    //     i++;
-    // }
-
-    itL = L.begin();
-    itR = R.begin();
-    itMylist = myList.begin();
-    std::advance(itMylist, l);
-
-    int j = 0;
-    int k = 0;
-
-    while (j < Llen && k < Rlen) {
-        if (*itL <= *itR) {
-            *itMylist = *itL;
-            ++itL;
-            ++j;
-        } else {
-            *itMylist = *itR;
-            ++itR;
-            ++k;
+    int i, j, k;
+    i = l;
+    j = 0;
+    k = 0;
+    while (j < Llen && k < Rlen)
+    {
+        if (L[j] <= R[k])
+        {
+            myArray[i] = L[j];
+            j++;
         }
-        ++itMylist;
+        else if (L[j] > R[k])
+        {
+            myArray[i] = R[k];
+            k++;
+        }
+        i++;
     }
 
-
-
-    // while (j < Llen)
-    // {
-    //     myV[i] = L[j];
-    //     j++;
-    //     i++;
-    // }
-
-    // while (k < Rlen)
-    // {
-    //     myV[i] = R[k];
-    //     k++;
-    //     i++;
-    // }
-
-      while (j < Llen) {
-        *itMylist = *itL;
-        ++itMylist;
-        ++itL;
-        ++j;
+    while (j < Llen)
+    {
+        myArray[i] = L[j];
+        j++;
+        i++;
     }
 
-    while (k < Rlen) {
-        *itMylist = *itR;
-        ++itMylist;
-        ++itR;
-        ++k;
+    while (k < Rlen)
+    {
+        myArray[i] = R[k];
+        k++;
+        i++;
     }
 }
 
-void PmergeMe::sortIMwithList(int l, int r)
+void PmergeMe::sortIMwithArray(int l, int r)
 {
     int canDoInsert = 5;
-    std::list<int>::iterator it = myList.begin();
-    std::advance(it, l + 1);
-    int count = r - l;
-    if (count <= canDoInsert)
+    if ((r - l) <= canDoInsert)
     {
-        for (int i = 0; i < count; i++)
+        for (int i = l + 1; i <= r; i++)
         {
-            int tmp = *it;
-            std::list<int>::iterator j = it;
-            while (j != myList.begin() && *std::prev(j) > tmp)
+            int tmp = myArray[i];
+            int j = i - 1;
+            while (j >= l && myArray[j] > tmp)
             {
-                *j = *std::prev(j);
-                --j;
+                myArray[j + 1] = myArray[j];
+                j--;
             }
-            *j = tmp;
-            ++it;
-        std::cout << *it << " ";
-
+            myArray[j + 1] = tmp;
         }
-        std::cout << "\n";
     }
     else
     {
         int midx = l + (r - l) / 2;
-        sortIMwithList(l, midx);
-        sortIMwithList(midx + 1, r);
-        sortMergeWithList(l, r, midx);
+        sortIMwithArray(l, midx);
+        sortIMwithArray(midx + 1, r);
+        sortMergeWithArray(l, r, midx);
     }
 }
 
-void PmergeMe::sortWithList()
+void PmergeMe::sortWithArray()
 {
     clock_t start = clock();
-    if (convertToList() == 0)
+    if (convertToArray() == 0)
     {
         return;
     }
-
-    sortIMwithList(0, len - 1);
+    sortIMwithArray(0, len - 1);
     clock_t end = clock();
     double microseconds = static_cast<double>(end - start) / (CLOCKS_PER_SEC / 1000000.0);
-
-    std::cout << "\nafter: ";
-    for (std::list<int>::iterator it = myList.begin(); it != myList.end(); it++)
-    {
-        std::cout << *it << " ";
-    }
-    std::cout << "\n";
-
     // Print the execution time
-    std::cout << "Time to process a range of " << len << " elements with std::List : " << microseconds << " us\n";
+    std::cout << "Time to process a range of " << len << " elements with std::array : " << microseconds << " us\n";
 }
 
+
 // ========================================================================
+
+bool PmergeMe::validateNbrs()
+{
+    int i = 0;
+    while (_av[++i])
+    {
+        int j= -1;
+        while (_av[i][++j])
+        {
+            if (!std::isdigit(_av[i][j]) && _av[i][j] != '-' && _av[i][j] != '+')
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+
 
 void PmergeMe::printBefore()
 {
@@ -354,7 +299,7 @@ void PmergeMe::printBefore()
     len--;
 }
 
-int PmergeMe::stringToInt(const std::string &str)
+int PmergeMe::stringToInt(const std::string &str, bool doWrite)
 {
     std::istringstream iss(str);
     int intValue;
@@ -362,7 +307,10 @@ int PmergeMe::stringToInt(const std::string &str)
     {
         if (intValue < 0)
         {
-            std::cout << "Error: Please Enter a positive integer sequence!";
+            if (doWrite)
+            {
+                std::cout << "Error\n";
+            }
             return -1;
         }
         return intValue;
