@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:06:13 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/05/17 13:13:31 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/05/17 18:17:05 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ bool RPN::isExprValid()
     return true;
 }
 
-int RPN::calculate(int num1, int num2, char operatorchar)
+float RPN::calculate(float num1, float num2, char operatorchar)
 {
     if (operatorchar == '-')
     {
@@ -82,8 +82,8 @@ int RPN::calculate(int num1, int num2, char operatorchar)
 
 void RPN::calculateExpr()
 {
-    int num1, num2;
-
+    float num1, num2;
+    
     if (!isExprValid())
     {
         std::cout << "Error\n";
@@ -97,27 +97,27 @@ void RPN::calculateExpr()
         }
         if (!std::isdigit(_expr[i]) && _expr[i] != ' ')
         {
-            if (operands.empty())
+            if (operands.size() < 2)
             {
                 std::cout << "Error\n";
                 return;
             }
             num1 = operands.top();
             operands.pop();
-            if (operands.empty())
+            num2 = operands.top();
+            operands.pop();
+            if (num1 == 0 && _expr[i] == '/')
             {
                 std::cout << "Error\n";
                 return;
             }
-            num2 = operands.top();
-            operands.pop();
             operands.push(calculate(num1, num2, _expr[i]));
         }
     }
     if (operands.size() != 1)
     {
-         std::cout << "Error\n";
-                return;
+        std::cout << "Error\n";
+        return;
     }
     std::cout << operands.top() << "\n";
 }

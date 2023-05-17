@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:06:13 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/05/17 12:39:37 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:32:47 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,20 @@ void BitcoinExchange::fetchAmountData(std::string filename)
     std::string line;
     char key[100];
     char value[100];
+    int i = -1;
 
-    while (std::getline(file, line))
+    while (std::getline(file, line) || i < 0)
     {
-        if (line == "date | value" || line == "")
+        ++i;
+        if (i == 0 && line != "date | value")
+        {
+            std::cout << "Error: no header.\n";
+            return;
+        }
+        if (i == 0)
+        {
             continue;
+        }
         if (sscanf(line.c_str(), "%[^ ] | %[^\n]", key, value) == 2)
         {
             calculateResult(key, value, line, 0);

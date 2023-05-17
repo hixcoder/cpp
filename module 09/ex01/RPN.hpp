@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:06:06 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/05/17 12:50:06 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/05/17 18:12:09 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class RPN
 {
 private:
     std::string _expr;
-    std::stack<int> operands;
+    std::stack<float> operands;
     
 
 public:
@@ -32,7 +32,7 @@ public:
 
     void calculateExpr();
     bool isExprValid();
-    int calculate(int num1, int num2, char operatorchar);
+    float calculate(float num1, float num2, char operatorchar);
 };
 
 
