@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:06:06 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/05/14 15:13:04 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/05/17 12:50:06 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ private:
     
 
 public:
-    RPN():_expr(""){};
     RPN(std::string expr):_expr(expr){};
+    RPN():_expr(""){};
+    RPN(const RPN &other);
+    RPN& operator=(const RPN &other);
     ~RPN();
 
     void calculateExpr();

@@ -6,14 +6,30 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:06:13 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/05/14 13:03:42 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/05/17 12:39:37 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
+
+
 BitcoinExchange::BitcoinExchange()
 {
+}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other)
+{
+    *this = other;
+}
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &other)
+{
+    if (this != &other)
+    {
+        this->_priceData = other._priceData;
+        this->_amountData = other._amountData;
+    }
+    return *this;
 }
 
 BitcoinExchange::BitcoinExchange(std::string priceData, std::string amountData)
@@ -106,6 +122,13 @@ bool isFloatValid(std::string value)
 
 float BitcoinExchange::getAmount(std::string value)
 {
+    if (isFloatValid(value))
+    {
+        if (value[value.length() - 1] == 'f')
+        {
+            value.pop_back();
+        }
+    }
     std::istringstream iss(value);
     float floatValue;
     if (iss >> floatValue)

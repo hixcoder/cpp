@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:06:06 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/05/16 18:13:04 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/05/17 13:15:52 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@ private:
     std::array<int, 10000> myArray;
 
 public:
-    PmergeMe();
     PmergeMe(char **av);
+    PmergeMe();
+    PmergeMe(const PmergeMe &other);
+    PmergeMe& operator=(const PmergeMe &other);
     ~PmergeMe();
     
     void printBefore();

@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:06:06 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/05/14 12:10:38 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/05/17 12:15:29 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ private:
     
 
 public:
-    BitcoinExchange();
     BitcoinExchange(std::string priceData, std::string amountData);
+    BitcoinExchange();
+    BitcoinExchange(const BitcoinExchange &other);
+    BitcoinExchange& operator=(const BitcoinExchange &other);
     ~BitcoinExchange();
 
     void fetchAmountData(std::string filename);

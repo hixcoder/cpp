@@ -6,15 +6,28 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:06:13 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/05/14 15:31:34 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/05/17 13:13:31 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-RPN::~RPN()
+
+RPN::RPN(const RPN &other)
 {
+    *this = other;
 }
+
+RPN& RPN::operator=(const RPN &other)
+{
+    if (this != &other)
+    {
+        this->_expr = other._expr;
+    }
+    return *this;
+}
+
+RPN::~RPN(){}
 
 bool RPN::isExprValid()
 {
@@ -29,7 +42,7 @@ bool RPN::isExprValid()
         }
         if (std::isdigit(_expr[i]))
         {
-            digitNbr++;
+            ++digitNbr;
             for (size_t j = digitNbr; j > 1; j--)
             {
                 if (_expr[i - (j - 1)] != '0')

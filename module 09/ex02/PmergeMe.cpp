@@ -6,7 +6,7 @@
 /*   By: hboumahd <hboumahd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:06:13 by hboumahd          #+#    #+#             */
-/*   Updated: 2023/05/16 18:32:31 by hboumahd         ###   ########.fr       */
+/*   Updated: 2023/05/17 13:29:08 by hboumahd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,22 @@ PmergeMe::PmergeMe(char **av) : _av(av)
         sortWithVector();
         sortWithArray();
     }
+}
+
+PmergeMe::PmergeMe(const PmergeMe &other) : _av(other._av), len(other.len), myV(other.myV), myArray(other.myArray)
+{
+}
+
+PmergeMe &PmergeMe::operator=(const PmergeMe &other)
+{
+    if (this != &other)
+    {
+        this->len = other.len;
+        this->myArray = other.myArray;
+        this->myV = other.myV;
+        this->_av = other._av;
+    }
+    return *this;
 }
 
 // ======================= VECTOR FUNCTIONS ================================
@@ -154,7 +170,6 @@ void PmergeMe::sortWithVector()
 
 // ======================= Array FUNCTIONS ================================
 
-
 int PmergeMe::convertToArray()
 {
     int i;
@@ -265,7 +280,6 @@ void PmergeMe::sortWithArray()
     std::cout << "Time to process a range of " << len << " elements with std::array : " << microseconds << " us\n";
 }
 
-
 // ========================================================================
 
 bool PmergeMe::validateNbrs()
@@ -273,7 +287,7 @@ bool PmergeMe::validateNbrs()
     int i = 0;
     while (_av[++i])
     {
-        int j= -1;
+        int j = -1;
         while (_av[i][++j])
         {
             if (!std::isdigit(_av[i][j]) && _av[i][j] != '-' && _av[i][j] != '+')
@@ -284,8 +298,6 @@ bool PmergeMe::validateNbrs()
     }
     return true;
 }
-
-
 
 void PmergeMe::printBefore()
 {
@@ -317,7 +329,10 @@ int PmergeMe::stringToInt(const std::string &str, bool doWrite)
     }
     else
     {
-        std::cout << "Error: Please Enter a positive integer sequence!";
+        if (doWrite)
+        {
+            std::cout << "Error\n";
+        }
         return -1;
     }
 }
